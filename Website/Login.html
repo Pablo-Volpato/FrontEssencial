@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Formulário de Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="Endereco.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(futrede.jpg);
+        }
+        
+        #tela {
+            background-color: rgb(64, 64, 66);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 80px;
+            border-radius: 15px;
+            color: white;
+            width: 40%;
+        }
+        
+        input {
+            padding: 15px;
+            border: none;
+            outline: none;
+            font-size: 15px;
+        }
+        
+        #botao {
+            width: 24%;
+            border-radius: 15px;
+            font-size: 20px;
+        }
+        
+        #botao:hover {
+            background-color: rgb(161, 165, 162);
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        p {
+            text-align: center;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="container" id="tela">
+        <a class="links" id="paracadastro"></a>
+        <a class="links" id="paralogin"></a>
+
+        <div class="content">
+            <!--FORMULÁRIO DE LOGIN-->
+            <div id="login">
+                <form method="POST" name="form">
+                    <h1>Login</h1>
+                    <p>
+                        <input id="nome_log" name="nome" required="required" type="text" placeholder="nome" />
+                    </p>
+                    <p>
+                        <input id="senha_log" name="senha" required="required" type="password" placeholder="senha" />
+                    </p>
+                    <p>
+                        <input type="checkbox" name="manterlogado" id="manterlogado" value="" />
+                        <label for="manterlogado">Manter-me logado</label>
+                    </p>
+
+                    <p>
+                        <a class="btn btn-primary" Id="botao" type="button" ref="#" onclick="acesso()">Entrar</a>
+                    </p>
+
+                    <p class="link">
+                        Ainda não tem conta?
+                        <a href="Cadastro.html">Cadastre-se</a>
+                        <br><br>
+                        <a href="Index.html">Voltar ao menu inicial</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+</body>
+
+</html>

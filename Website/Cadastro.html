@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta http-equiv="Content-Type" content="text/html" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src=" Endereco.js"></script>
+
+    <title>Formulário de Cadastro</title>
+    <style>
+        body {
+            background-image: url(futrede2.jpg);
+            width: 100%;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="menu">
+        <ul>
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="Sobre.html">Sobre</a></li>
+            <li><a href="FaleConosco.html">Fale conosco</a></li>
+            <li><a href="Login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <form class="row g-3" method="POST">
+        <div class="col-md-4 position-relative"><br><br>
+            <label for="validationTooltip01" class="form-label">Primeiro Nome</label>
+            <input type="text" class="form-control" id="nome" value="" required>
+        </div>
+        <div class="col-md-4 position-relative"><br><br>
+            <label for="validationTooltip02" class="form-label">Último Nome</label>
+            <input type="text" class="form-control" id="sobrenome" value="" required>
+        </div>
+        <div class="col-md-4 position-relative"><br><br>
+            <label for="validationTooltipUsername" class="form-label">Nome de Usuário</label>
+            <div class="input-group has-validation">
+                <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                <input type="text" class="form-control" id="usuario" required>
+            </div>
+        </div>
+        <div class="col-md-3 position-relative">
+            <label for="cep" class="form-label">Cep</label>
+            <input type="text" class="form-control" id="cep" required>
+        </div>
+        </div>
+        <div class="col-md-6 position-relative">
+            <label for="cidade" class="form-label">Cidade</label>
+            <input type="text" class="form-control" id="cidade" required>
+        </div>
+        <div class="col-md-3 position-relative">
+            <label for="uf" class="form-label">Estado</label>
+            <select class="form-select" id="uf" required>
+            <option selected disabled value="">Escolha</option>
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+      </select>
+        </div>
+        <script type="text/javascript">
+            $("#cep").focusout(function() {
+
+                $.ajax({
+
+                    url: 'https://viacep.com.br/ws/' + $(this).val() + '/json/unicode/',
+
+                    dataType: 'json',
+
+                    success: function(resposta) {
+
+                        $("#logradouro").val(resposta.logradouro);
+                        $("#complemento").val(resposta.complemento);
+                        $("#bairro").val(resposta.bairro);
+                        $("#cidade").val(resposta.localidade);
+                        $("#uf").val(resposta.uf);
+
+                        $("#numero").focus();
+                    }
+                });
+            });
+        </script>
+
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit" ref="#" onclick="validar()">Acessar</button>
+            <br><br><br><br><br><br><br><br>
+        </div>
+    </form>
+
+    <footer>
+        <p>© 2021 Program Soccer</p>
+
+        <table border="1">
+            <tr>
+                <td>
+                    <td><a href="https://www.linkedin.com/feed/?trk=onboarding-landing">LinkedIn</a><img src="https://imagens-revista-pro.vivadecora.com.br/uploads/2017/10/como-usar-o-linkedin-para-empresas.png" alt="Logo_LinkedIn" height="20" width="20"></td>
+                    <td><a href="https://www.linkedin.com/feed/?trk=onboarding-landing">Instagram</a><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/768px-Instagram_icon.png" alt="Logo_Instagram" height="20" width="20"></td>
+                    <td><a href="https://www.linkedin.com/feed/?trk=onboarding-landing">Facebook</a><img src="https://www.facebook.com/images/fb_icon_325x325.png" alt="Logo_Facebook" height="20" width="20"></td>
+            </tr>
+        </table>​​​
+    </footer>
+
+</body>
+
+</html>
